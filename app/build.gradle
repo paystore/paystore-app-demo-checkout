@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+def githubProperties = new Properties()
+def githubPropertiesFile = file("github.properties")
+githubProperties.load(new FileInputStream(githubPropertiesFile))
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.phoebus.libraries.checkout.example"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/paystore/libcheckout")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+}
+
+dependencies {
+    //related to this app
+    implementation 'br.com.concrete:canarinho:2.0.1'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3' // error android resource linking failed
+
+    implementation 'com.phoebus.libraries.checkout:checkout:1.1.0.0'
+
+    // Required for local unit tests (JUnit 4 framework)
+    testImplementation 'junit:junit:4.12'
+
+    // Required for instrumented tests
+    androidTestImplementation 'com.android.support:support-annotations:24.0.0'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestUtil 'androidx.test:orchestrator:1.1.0'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Checkout App Example</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="email">Email</string>
+    <string name="value">Valor a pagar</string>
+    <string name="order_number">Número do pedido</string>
+    <string name="merchant_payment_id">ID do pagamento do comerciante</string>
+    <string name="pay">Pagar</string>
+
+</resources>

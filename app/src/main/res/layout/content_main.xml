@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    >
+    <TableRow>
+        <TextView android:text="Email: " android:padding="10dp"/>
+        <EditText android:id="@+id/edtEmail" android:padding="10dp" android:inputType="textEmailAddress"><requestFocus /></EditText>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Valor a pagar: " android:padding="10dp"/>
+        <EditText android:id="@+id/edtValue" android:padding="10dp" android:inputType="number" android:maxLength="18"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Número do pedido: " android:padding="10dp"/>
+        <EditText android:id="@+id/edtOrderNumber" android:padding="10dp" android:inputType="number"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Id do comerciante: " android:padding="10dp"/>
+        <EditText android:id="@+id/edtMerchantPaymentId" android:padding="10dp"/>
+    </TableRow>
+    <TableRow android:id="@+id/tableRowMerchantToken">
+        <TextView android:text="Token do lojista: " android:padding="10dp"/>
+        <EditText android:id="@+id/edtMerchantToken" android:padding="10dp" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+    <TableRow android:gravity="right">
+        <Button android:id="@+id/start_lib" android:text="@string/pay"/>
+    </TableRow>
+</TableLayout>
+
